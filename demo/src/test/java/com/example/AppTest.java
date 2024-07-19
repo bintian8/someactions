@@ -44,7 +44,6 @@ public class AppTest
     public void testDivide() {
         Calculator calculator = new Calculator();
         double result = calculator.divide(10, 4);
-        System.out.println("RESULT: " + result);
         assertEquals(2.5, result, 0.0001); // 10 / 4 は 2.5 です。第3引数は許容誤差
     }
 
