@@ -27,9 +27,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Compile with Maven
+      run: mvn -B compile
       working-directory: ./demo
+    # - name: Build with Maven
+    #   run: mvn -B package --file pom.xml
+    #   working-directory: ./demo
     # Test実行
     - name: Test with Maven
       run: mvn --batch-mode test
