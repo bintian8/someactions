@@ -27,17 +27,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    # - name: Compile with Maven
-    #   run: mvn -B compile
-    #   working-directory: ./demo
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       working-directory: ./demo
-    # Test実行
+    # - name: Compile with Maven
+    #   run: mvn -B compile
+    #   working-directory: ./demo
+    # Run Test
     # - name: Test with Maven
     #   run: mvn --batch-mode test
     #   working-directory: ./demo
-    - name: List JAR 
+    - name: List Jar file
       run: |
         jar tvf ${{ github.workspace }}/demo/target/demo-1.0-SNAPSHOT.jar
     - name: Store JAR as artifact
