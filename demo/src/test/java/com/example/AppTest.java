@@ -61,4 +61,56 @@ public class AppTest
         }
     }
 
+    @Test
+    public void testToString_NormalInputs() {
+        Calculator calculator = new Calculator();
+        String result = calculator.toString("Hello, ", "World!");
+        assertEquals("Hello, World!", result);
+    }
+
+    @Test
+    public void testToString_NormalInputs_ShouldThrowIllegalArgumentException() {
+        Calculator calculator = new Calculator();
+            // 例外がスローされることを確認
+        try {
+            calculator.toString(null, null);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+        }
+    }
+
+    @Test
+    public void testToString_NormalInputs_ShouldThrowIllegalArgumentException2() {
+        Calculator calculator = new Calculator();
+            // 例外がスローされることを確認
+        try {
+            calculator.toString("", null);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+        }
+    }
+
+    @Test
+    public void testToString_NormalInputs_ShouldThrowIllegalArgumentException3() {
+        Calculator calculator = new Calculator();
+            // 例外がスローされることを確認
+        try {
+            calculator.toString(null, "STOP");
+            fail();
+        } catch (IllegalArgumentException e) {
+            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+        }
+    }
+
+
+    @Test
+    public void testRandom() {
+        Calculator calculator = new Calculator();
+        int result = calculator.random();
+        System.out.println("Random Output: " + result);
+        assertTrue(result >= 0 && result <= 100);
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Random;
+
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
@@ -19,6 +21,20 @@ public class Calculator {
         }
         return (double) a / b;
     }
-    
+
+    public String toString(String a, String b) {
+        if (a == null || b == null) {
+            throw new IllegalArgumentException("Division by zero is not allowed.");
+        }
+        StringBuilder sb  = new StringBuilder();
+        sb.append(a);
+        sb.append(b);
+        return sb.toString();
+    }
+
+    public int random() {
+        Random rand = new Random();
+        return rand.nextInt(101);
+    }
 
 }
