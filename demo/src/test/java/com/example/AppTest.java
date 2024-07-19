@@ -1,7 +1,9 @@
 package com.example;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -43,17 +45,20 @@ public class AppTest
     @Test
     public void testDivide() {
         Calculator calculator = new Calculator();
-        int result = calculator.divide(10, 4);
-        assertEquals(2, result); // 10 / 4 は 2.5 です。第3引数は許容誤差
+        double result = calculator.divide(10, 4);
+        assertEquals(2.5, result, 0.0001); // 10 / 4 は 2.5 です。第3引数は許容誤差
     }
 
-    // @Test
-    // public void testDivide_DivisionByZero_ShouldThrowIllegalArgumentException() {
-    //     Calculator calculator = new Calculator();
-    //     // 例外がスローされることを確認
-    //     assertThrows(IllegalArgumentException.class, () -> {
-    //         calculator.divide(10, 0);
-    //     });
-    // }
+    @Test
+    public void testDivide_DivisionByZero_ShouldThrowIllegalArgumentException() {
+        Calculator calculator = new Calculator();
+            // 例外がスローされることを確認
+        try {
+            calculator.divide(10, 0);
+            fail();
+        } catch (IllegalArgumentException e) {
+            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+        }
+    }
 
 }
