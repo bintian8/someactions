@@ -33,4 +33,28 @@ public class AppTest
         assertEquals(6, result);
     }
 
+    @Test
+    public void testMultiply() {
+        Calculator calculator = new Calculator();
+        int result = calculator.multiply(10, 4);
+        assertEquals(40, result);
+    }
+
+    @Test
+    public void testDivide() {
+        Calculator calculator = new Calculator();
+        double result = calculator.divide(10, 4);
+        System.out.println("RESULT: " + result);
+        assertEquals(2.5, result, 0.0001); // 10 / 4 は 2.5 です。第3引数は許容誤差
+    }
+
+    @Test
+    public void testDivide_DivisionByZero_ShouldThrowIllegalArgumentException() {
+        Calculator calculator = new Calculator();
+        // 例外がスローされることを確認
+        assertThrows(IllegalArgumentException.class, () -> {
+            calculator.divide(10, 0);
+        });
+    }
+
 }
