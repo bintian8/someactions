@@ -45,17 +45,13 @@ jobs:
       with:
           name: target-jar
           path: ${{ github.workspace }}/demo/target/*.jar
-    # - name: Install GitHub CLI
-    #   run: |
-    #       sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-    #       sudo apt-add-repository https://cli.github.com/packages
-    #       sudo apt update
-    #       sudo apt install gh -y
-    # - name: Authenticate with GitHub CLI
-    #   env:
-    #     GH_TOKEN: ${{ github.token }}
-    #   run: |
-    #     echo $GH_TOKEN | gh auth login --with-token
+    - name: Pull Request (Test...)
+      env:
+          GH_TOKEN: ${{ github.token }}
+      run: |
+          # Create a pull request
+          PR_URL=$(gh pr create --title "From Actions" --body "develop branch to the main." --head develop --base main)
+          echo "Pull request created: $PR_URL"
 
     #- name: Pull Request (Test...)
     #  env:
