@@ -70,9 +70,9 @@ jobs:
           git checkout -b $BRANCH_NAME
 
           # Add the JAR file to the repository
-          mkdir -p artifacts
-          cp ${{ github.workspace }}/demo/target/*.jar artifacts/
-          git add artifacts/*.jar
+          mkdir -p dist
+          cp ${{ github.workspace }}/demo/target/*.jar dist/
+          git add dist/*.jar
 
           # Commit the JAR file
           git commit -m "Add built JAR file"
@@ -81,7 +81,7 @@ jobs:
           git push origin $BRANCH_NAME
 
           # Create a pull request
-          PR_URL=$(gh pr create --title "Add built JAR file" --body "This PR adds the built JAR file to the repository" --head $BRANCH_NAME --base main)
+          PR_URL=$(gh pr create --title "From Actions(PUSH/PR)" --body "This PR adds the built JAR file to the main." --head $BRANCH_NAME --base main)
           echo "Pull request created: $PR_URL"
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
