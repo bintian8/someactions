@@ -59,6 +59,11 @@ jobs:
     #       sudo apt-add-repository https://cli.github.com/packages
     #       sudo apt update
     #       sudo apt install gh -y
+    - name: Authenticate with GitHub CLI
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        echo $GH_TOKEN | gh auth login --with-token
 
     # - name: Create and push JAR file
     #   env:
