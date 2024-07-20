@@ -70,9 +70,9 @@ jobs:
           git checkout -b $BRANCH_NAME
 
           # Add the JAR file to the repository
-          mkdir -p dist
-          cp ${{ github.workspace }}/demo/target/*.jar dist/
-          git add dist/*.jar
+          mkdir -p demo/jar
+          cp ${{ github.workspace }}/demo/target/*.jar demo/jar/
+          git add demo/jar/*.jar
 
           # Commit the JAR file
           git commit -m "Add built JAR file"
