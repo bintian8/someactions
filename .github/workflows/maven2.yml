@@ -57,7 +57,7 @@ jobs:
     #   run: |
     #     echo $GH_TOKEN | gh auth login --with-token
 
-    - name: Pull Request
+    - name: Pull Request (Test)
       env:
           GH_TOKEN: ${{ github.token }}
       run: |
