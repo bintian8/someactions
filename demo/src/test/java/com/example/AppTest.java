@@ -76,7 +76,7 @@ public class AppTest
             calculator.toString(null, null);
             fail();
         } catch (IllegalArgumentException e) {
-            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+            // assertThat(e.getMessage(), is("argument cannot contain Null."));
         }
     }
 
@@ -88,7 +88,7 @@ public class AppTest
             calculator.toString("", null);
             fail();
         } catch (IllegalArgumentException e) {
-            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+            // assertThat(e.getMessage(), is("argument cannot contain Null."));
         }
     }
 
@@ -100,7 +100,7 @@ public class AppTest
             calculator.toString(null, "STOP");
             fail();
         } catch (IllegalArgumentException e) {
-            // assertThat(e.getMessage(), is("argument cannot be ZERO."));
+            // assertThat(e.getMessage(), is("argument cannot contain Null."));
         }
     }
 

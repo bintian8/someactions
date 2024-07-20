@@ -24,7 +24,7 @@ public class Calculator {
 
     public String toString(String a, String b) {
         if (a == null || b == null) {
-            throw new IllegalArgumentException("Division by zero is not allowed.");
+            throw new IllegalArgumentException("Null is not allowed.");
         }
         StringBuilder sb  = new StringBuilder();
         sb.append(a);
